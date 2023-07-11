@@ -1,95 +1,81 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
 
-export default function Home() {
+import React from "react";
+import Image from "next/image";
+import { Breadcrumb, Layout, Menu, theme } from "antd";
+import {
+  BreadcrumbItemType,
+  BreadcrumbSeparatorType,
+} from "antd/es/breadcrumb/Breadcrumb";
+import MobifoneLogo from "@/public/mobifone_logo.png";
+import { ItemType, MenuItemType } from "antd/es/menu/hooks/useItems";
+const { Header, Content, Footer } = Layout;
+
+const Home: React.FC = () => {
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken();
+
+  const menuItems: ItemType<MenuItemType>[] = [
+    {
+      key: "1",
+      label: "nav 1",
+    },
+    {
+      key: "2",
+      label: "nav 2",
+    },
+    {
+      key: "3",
+      label: "nav 3",
+    },
+  ];
+
+  const breadcrumbItems: Partial<
+    BreadcrumbItemType & BreadcrumbSeparatorType
+  >[] = [
+    { breadcrumbName: "Home", key: "home", title: "Home" },
+    { breadcrumbName: "List", key: "list", title: "List" },
+    { breadcrumbName: "App", key: "app", title: "App" },
+  ];
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
+    <Layout>
+      <Header
+        style={{
+          position: "sticky",
+          top: 0,
+          zIndex: 1,
+          width: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+          className="demo-logo"
+          src={MobifoneLogo}
+          alt="logo"
+          width={200}
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+        <Menu theme="dark" mode="horizontal" items={menuItems} />
+      </Header>
+      <Content className="site-layout" style={{ padding: "0 50px" }}>
+        <Breadcrumb
+          style={{ margin: "16px 0" }}
+          items={breadcrumbItems}
+        ></Breadcrumb>
+        <div
+          style={{ padding: 24, minHeight: 380, background: colorBgContainer }}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+          Content
+        </div>
+      </Content>
+      <Footer style={{ textAlign: "center" }}>
+        Ant Design ©2023 Created by Ant UED
+      </Footer>
+    </Layout>
+  );
+};
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
-}
+export default Home;
