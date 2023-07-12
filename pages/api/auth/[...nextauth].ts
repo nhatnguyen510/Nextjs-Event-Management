@@ -17,7 +17,7 @@ export const nextAuthOptions: NextAuthOptions = {
 
         return {
           id: "123",
-          name: "John Doe",
+          name: "Nhat Nguyen",
           email,
         };
         // const res = await fetch(
