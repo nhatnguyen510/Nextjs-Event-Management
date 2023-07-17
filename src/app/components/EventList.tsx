@@ -5,6 +5,7 @@ import type { PaginationProps } from "antd";
 import { Pagination } from "antd";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import { useStore } from "../../../util/zustand";
 
 const { Title, Paragraph } = Typography;
 
@@ -57,6 +58,8 @@ const events: Event[] = [
 export const EventList: React.FC<EventListProps> = ({ eventList }) => {
   const router = useRouter();
 
+  const { setBreadcrumbItems } = useStore();
+
   return (
     <>
       <Title level={2}>All Events</Title>
@@ -75,7 +78,22 @@ export const EventList: React.FC<EventListProps> = ({ eventList }) => {
           <List.Item
             onClick={(e) => {
               e.preventDefault();
-
+              setBreadcrumbItems([
+                {
+                  path: "/",
+                  title: "Home",
+                  name: "Home",
+                  breadcrumbName: "Home",
+                  key: "home",
+                },
+                {
+                  path: `events/${event.id}`,
+                  title: `${event.title}`,
+                  name: `${event.title}`,
+                  breadcrumbName: `${event.title}`,
+                  key: `${event.title}`,
+                },
+              ]);
               router.push(`/events/${event.id}`);
             }}
           >
