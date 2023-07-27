@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import { Typography, Divider, QRCode } from "antd";
+import listOfEvents from "../../../../fake-data.json";
+import Image from "next/image";
+import WelcomeLogo from "@/public/welcome.png";
 
 interface EventDetailProps {
   params: { eventId: string };
@@ -42,20 +45,20 @@ const EventDetail: React.FC<EventDetailProps> = ({ params: { eventId } }) => {
     QRCodeLink: "https://mobifone.vn",
   };
 
+  const event = listOfEvents.find((event) => event.id === eventId);
+
   return (
     <>
-      <div className="min-h-screen">
-        <Typography.Title level={2}>{post.title}</Typography.Title>
-        <Divider />
-        <div
-          dangerouslySetInnerHTML={{ __html: post.content }}
-          className="flex flex-col gap-4"
-        ></div>
-        <Divider />
-        <div className="flex flex-col items-center">
-          <Typography.Title level={3}>Scan QR Code</Typography.Title>
-          <QRCode value={post.QRCodeLink} />
-        </div>
+      <div className="min-h-screen p-8 flex flex-col items-center justify-center gap-4">
+        <Image src={WelcomeLogo} alt="" width={200} height={100} />
+        <Image src={event?.image as string} alt="" width={500} height={300} />
+        <Typography.Title level={1} className="text-center">
+          {event?.title}
+        </Typography.Title>
+        <Typography.Title level={2} className="mt-0">
+          Date: {event?.date}
+        </Typography.Title>
+        <QRCode value={event?.QRCodeLink as string} />
       </div>
     </>
   );

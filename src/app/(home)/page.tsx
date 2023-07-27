@@ -1,11 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import { Breadcrumb, Layout, theme } from "antd";
-import {
-  BreadcrumbItemType,
-  BreadcrumbSeparatorType,
-} from "antd/es/breadcrumb/Breadcrumb";
+import React from "react";
+import { Layout, theme } from "antd";
 import { EventList } from "../components/EventList";
 
 const { Content } = Layout;
@@ -20,10 +16,10 @@ const Home: React.FC<HomeProps> = () => {
   } = theme.useToken();
 
   return (
-    <Content className="px-12 flex flex-col ">
+    <Content className="px-12 py-4 flex flex-col">
       <div
         style={{ background: colorBgContainer }}
-        className="p-6 min-h-[380px] flex flex-col justify-between"
+        className="min-h-[460px] p-6 flex-1 flex flex-col items-center justify-start"
       >
         <EventList />
       </div>
