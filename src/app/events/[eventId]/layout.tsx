@@ -9,7 +9,7 @@ export default function EventLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-gradient-to-r from-[#36D1DC] to-[#5b86e5] text-black">
+    <div className="min-h-screen w-full bg-gradient-to-r from-yellow-300 to-purple-500 via-blue-400 animate-gradient-x text-black">
       {children}
     </div>
   );

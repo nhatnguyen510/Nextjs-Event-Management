@@ -1,0 +1,87 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "title": "Event 1",
+      "description": "This is the description for Event 1.",
+      "date": "2022-12-31",
+      "location": "Location 1",
+      "organizer": "Organizer 1",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event1-qrcode",
+      "attendees": ["1", "2"]
+    },
+    {
+      "id": "2",
+      "title": "Event 2",
+      "description": "This is the description for Event 2.",
+      "date": "2022-11-30",
+      "location": "Location 2",
+      "organizer": "Organizer 2",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event2-qrcode",
+      "attendees": ["3", "4"]
+    },
+    {
+      "id": "3",
+      "title": "Event 3",
+      "description": "This is the description for Event 3.",
+      "date": "2022-10-31",
+      "location": "Location 3",
+      "organizer": "Organizer 3",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event3-qrcode",
+      "attendees": ["5", "6"]
+    }
+  ],
+  "attendees": [
+    {
+      "id": "1",
+      "name": "Attendee 1",
+      "email": "attendee1@example.com",
+      "phone": "1234567890",
+      "agency": "Agency 1",
+      "events": ["1"]
+    },
+    {
+      "id": "2",
+      "name": "Attendee 2",
+      "email": "attendee2@example.com",
+      "phone": "9876543210",
+      "agency": "Agency 2",
+      "events": ["1"]
+    },
+    {
+      "id": "3",
+      "name": "Attendee 3",
+      "email": "attendee3@example.com",
+      "phone": "1111111111",
+      "agency": "Agency 3",
+      "events": ["2"]
+    },
+    {
+      "id": "4",
+      "name": "Attendee 4",
+      "email": "attendee4@example.com",
+      "phone": "2222222222",
+      "agency": "Agency 4",
+      "events": ["2"]
+    },
+    {
+      "id": "5",
+      "name": "Attendee 5",
+      "email": "attendee5@example.com",
+      "phone": "3333333333",
+      "agency": "Agency 5",
+      "events": ["3"]
+    },
+    {
+      "id": "6",
+      "name": "Attendee 6",
+      "email": "attendee6@example.com",
+      "phone": "4444444444",
+      "agency": "Agency 6",
+      "events": ["3"]
+    }
+  ]
+}

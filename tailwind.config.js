@@ -9,7 +9,23 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      keyframes: {
+        "gradient-x": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+      },
+      animation: {
+        "gradient-x": "gradient-x 15s ease infinite",
+      },
+    },
   },
   plugins: [],
 };

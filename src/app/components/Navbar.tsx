@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useMemo } from "react";
 import { Header } from "antd/es/layout/layout";
 import Image from "next/image";
@@ -17,7 +15,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
   const router = useRouter();
 
   const menuItems: MenuProps["items"] = useMemo(() => {
-    return [
+    const baseItems = [
       {
         key: "home",
         label: "Home",
@@ -47,11 +45,26 @@ const Navbar: React.FC<NavbarProps> = (props) => {
         ],
       },
     ];
-  }, [session?.user?.name]);
+
+    // Check if user is admin and add the "Dashboard" menu item
+    if (session?.user?.name === "admin") {
+      baseItems.splice(1, 0, {
+        key: "dashboard",
+        label: "Dashboard",
+        slug: "/dashboard",
+      });
+    }
+
+    return baseItems;
+  }, [session?.user?.name, session?.user?.name]);
 
   const onMenuClick: MenuProps["onClick"] = async (e) => {
     // check case Logout
     switch (e.key) {
+      case "dashboard":
+        router.push("/dashboard");
+        break;
+
       case "logout":
         await signOut({
           callbackUrl: "/login",
@@ -61,6 +74,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
         router.push("/");
     }
   };
+
   return (
     <>
       <Header

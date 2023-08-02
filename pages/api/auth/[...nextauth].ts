@@ -15,6 +15,14 @@ export const nextAuthOptions: NextAuthOptions = {
 
         console.log({ email, password });
 
+        if (email == "admin" && password == "admin") {
+          return {
+            id: "123",
+            name: "admin",
+            email,
+          };
+        }
+
         return {
           id: "123",
           name: "Nhat Nguyen",

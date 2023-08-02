@@ -10,6 +10,13 @@ export default withAuth(
     const isAuthPage =
       req.nextUrl.pathname.startsWith("/login") ||
       req.nextUrl.pathname.startsWith("/register");
+    const protectedPaths = ["/dashboard"];
+
+    if (protectedPaths.some((path) => req.nextUrl.pathname.startsWith(path))) {
+      if (token?.name !== "admin") {
+        return NextResponse.redirect(new URL("/", req.url));
+      }
+    }
 
     if (isAuthPage) {
       if (isAuth) {
