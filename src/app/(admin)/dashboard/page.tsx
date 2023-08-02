@@ -8,7 +8,6 @@ import {
   EditGuesser,
   DataProvider,
 } from "react-admin";
-import jsonServerProvider from "ra-data-json-server";
 import { EventListRow } from "@/app/components/EventListRow";
 import { EventListCreate } from "@/app/components/EventListCreate";
 import fakeEvents from "@/../fake-events.json";
@@ -17,13 +16,17 @@ import AttendeeListRow from "@/app/components/AttendeeListRow";
 import EventIcon from "@mui/icons-material/Event";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import AdminLayout from "@/app/components/AdminLayout";
-import { authProvider } from "../../../../lib/AuthProvider";
+import dynamic from "next/dynamic";
 
 const dataProvider = fakeDataProvider(fakeEvents);
 
 interface AdminProps {}
 
 const AdminDashboard: React.FC<AdminProps> = (props) => {
+  if (typeof document === "undefined") {
+    return null;
+  }
+
   return (
     <>
       <Admin dataProvider={dataProvider} layout={AdminLayout}>
