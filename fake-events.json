@@ -5,10 +5,12 @@
       "title": "Event 1",
       "description": "This is the description for Event 1.",
       "date": "2022-12-31",
+      "endDate": "2022-12-31",
       "location": "Location 1",
-      "organizer": "Organizer 1",
+      "agency": "1",
       "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
       "QRCodeLink": "https://example.com/event1-qrcode",
+      "numOfAttendees": 2,
       "attendees": ["1", "2"]
     },
     {
@@ -16,10 +18,12 @@
       "title": "Event 2",
       "description": "This is the description for Event 2.",
       "date": "2022-11-30",
+      "endDate": "2022-11-30",
       "location": "Location 2",
-      "organizer": "Organizer 2",
+      "agency": "2",
       "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
       "QRCodeLink": "https://example.com/event2-qrcode",
+      "numOfAttendees": 2,
       "attendees": ["3", "4"]
     },
     {
@@ -27,10 +31,129 @@
       "title": "Event 3",
       "description": "This is the description for Event 3.",
       "date": "2022-10-31",
+      "endDate": "2022-10-31",
       "location": "Location 3",
-      "organizer": "Organizer 3",
+      "agency": "3",
       "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
       "QRCodeLink": "https://example.com/event3-qrcode",
+      "numOfAttendees": 2,
+      "attendees": ["5", "6"]
+    },
+    {
+      "id": "4",
+      "title": "Event 4",
+      "description": "This is the description for Event 4.",
+      "date": "2023-12-31",
+      "endDate": "2023-12-31",
+      "location": "Location 4",
+      "agency": "4",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event1-qrcode",
+      "numOfAttendees": 4,
+      "attendees": ["1", "2", "3", "4"]
+    },
+    {
+      "id": "5",
+      "title": "Event 5",
+      "description": "This is the description for Event 5.",
+      "date": "2023-11-30",
+      "endDate": "2023-11-30",
+      "location": "Location 5",
+      "agency": "5",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event2-qrcode",
+      "numOfAttendees": 2,
+      "attendees": ["3", "4"]
+    },
+    {
+      "id": "6",
+      "title": "Event 6",
+      "description": "This is the description for Event 6.",
+      "date": "2023-08-02",
+      "endDate": "2023-08-31",
+      "location": "Location 6",
+      "agency": "6",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event3-qrcode",
+      "numOfAttendees": 2,
+      "attendees": ["5", "6"]
+    },
+    {
+      "id": "7",
+      "title": "Event 7",
+      "description": "This is the description for Event 7.",
+      "date": "2022-12-31",
+      "endDate": "2022-12-31",
+      "location": "Location 7",
+      "agency": "1",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event1-qrcode",
+      "numOfAttendees": 2,
+      "attendees": ["1", "2"]
+    },
+    {
+      "id": "8",
+      "title": "Event 8",
+      "description": "This is the description for Event 8.",
+      "date": "2022-11-30",
+      "endDate": "2022-11-30",
+      "location": "Location 8",
+      "agency": "2",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event2-qrcode",
+      "numOfAttendees": 2,
+      "attendees": ["3", "4"]
+    },
+    {
+      "id": "9",
+      "title": "Event 9",
+      "description": "This is the description for Event 9.",
+      "date": "2022-10-31",
+      "endDate": "2022-10-31",
+      "location": "Location 9",
+      "agency": "3",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event3-qrcode",
+      "numOfAttendees": 2,
+      "attendees": ["5", "6"]
+    },
+    {
+      "id": "10",
+      "title": "Event 10",
+      "description": "This is the description for Event 10.",
+      "date": "2023-12-31",
+      "endDate": "2023-12-31",
+      "location": "Location 10",
+      "agency": "4",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event1-qrcode",
+      "numOfAttendees": 4,
+      "attendees": ["1", "2", "3", "4"]
+    },
+    {
+      "id": "11",
+      "title": "Event 11",
+      "description": "This is the description for Event 11.",
+      "date": "2023-11-30",
+      "endDate": "2023-11-30",
+      "location": "Location 11",
+      "agency": "5",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event2-qrcode",
+      "numOfAttendees": 2,
+      "attendees": ["3", "4"]
+    },
+    {
+      "id": "12",
+      "title": "Event 12",
+      "description": "This is the description for Event 12.",
+      "date": "2023-08-02",
+      "endDate": "2023-08-31",
+      "location": "Location 12",
+      "agency": "6",
+      "image": "https://api.mobifone.vn/images/article/1690448797774_z4014754934220_43276d85a0f8f3fc9bb90c4b211f39b1.jpg",
+      "QRCodeLink": "https://example.com/event3-qrcode",
+      "numOfAttendees": 2,
       "attendees": ["5", "6"]
     }
   ],
@@ -40,48 +163,128 @@
       "name": "Attendee 1",
       "email": "attendee1@example.com",
       "phone": "1234567890",
+      "avatar": "https://i.pravatar.cc/150?img=1",
       "agency": "Agency 1",
-      "events": ["1"]
+      "events": ["1", "4", "7", "10"]
     },
     {
       "id": "2",
       "name": "Attendee 2",
       "email": "attendee2@example.com",
       "phone": "9876543210",
+      "avatar": "https://i.pravatar.cc/150?img=2",
       "agency": "Agency 2",
-      "events": ["1"]
+      "events": ["1", "4", "7", "10"]
     },
     {
       "id": "3",
       "name": "Attendee 3",
       "email": "attendee3@example.com",
       "phone": "1111111111",
+      "avatar": "https://i.pravatar.cc/150?img=3",
       "agency": "Agency 3",
-      "events": ["2"]
+      "events": ["2", "4", "5", "8", "10", "11"]
     },
     {
       "id": "4",
       "name": "Attendee 4",
       "email": "attendee4@example.com",
       "phone": "2222222222",
+      "avatar": "https://i.pravatar.cc/150?img=4",
       "agency": "Agency 4",
-      "events": ["2"]
+      "events": ["2", "4", "5", "8", "10", "11"]
     },
     {
       "id": "5",
       "name": "Attendee 5",
       "email": "attendee5@example.com",
       "phone": "3333333333",
+      "avatar": "https://i.pravatar.cc/150?img=5",
       "agency": "Agency 5",
-      "events": ["3"]
+      "events": ["3", "6", "9", "12"]
     },
     {
       "id": "6",
       "name": "Attendee 6",
       "email": "attendee6@example.com",
       "phone": "4444444444",
+      "avatar": "https://i.pravatar.cc/150?img=6",
       "agency": "Agency 6",
-      "events": ["3"]
+      "events": ["3", "6", "9", "12"]
+    }
+  ],
+  "agencies": [
+    {
+      "id": "1",
+      "name": "Agency 1",
+      "address": "123 Main Street",
+      "city": "New York",
+      "country": "USA",
+      "logo": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c0840e59-db43-4681-ae7b-31a04dc4bc55/d7eqdvw-4e97ac92-e4b9-4498-9655-e4d612eb478b.png/v1/fill/w_1192,h_670/random_logo_by_criticl_d7eqdvw-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvYzA4NDBlNTktZGI0My00NjgxLWFlN2ItMzFhMDRkYzRiYzU1XC9kN2VxZHZ3LTRlOTdhYzkyLWU0YjktNDQ5OC05NjU1LWU0ZDYxMmViNDc4Yi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.X991O1jF5lTNZbbEoHEfoo6nlHEihBMHMIm5-uBCXcU",
+      "phone": "555-1234",
+      "email": "agency1@example.com",
+      "website": "https://www.agency1.com",
+      "events": ["1", "2"]
+    },
+    {
+      "id": "2",
+      "name": "Agency 2",
+      "address": "456 Main Street",
+      "city": "New York",
+      "country": "USA",
+      "logo": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c0840e59-db43-4681-ae7b-31a04dc4bc55/d7eqdvw-4e97ac92-e4b9-4498-9655-e4d612eb478b.png/v1/fill/w_1192,h_670/random_logo_by_criticl_d7eqdvw-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvYzA4NDBlNTktZGI0My00NjgxLWFlN2ItMzFhMDRkYzRiYzU1XC9kN2VxZHZ3LTRlOTdhYzkyLWU0YjktNDQ5OC05NjU1LWU0ZDYxMmViNDc4Yi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.X991O1jF5lTNZbbEoHEfoo6nlHEihBMHMIm5-uBCXcU",
+      "phone": "555-5678",
+      "email": "agency2@example.com",
+      "website": "https://www.agency2.com",
+      "events": ["3", "4"]
+    },
+    {
+      "id": "3",
+      "name": "Agency 3",
+      "address": "789 Oak Street",
+      "city": "Chicago",
+      "country": "USA",
+      "logo": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c0840e59-db43-4681-ae7b-31a04dc4bc55/d7eqdvw-4e97ac92-e4b9-4498-9655-e4d612eb478b.png/v1/fill/w_1192,h_670/random_logo_by_criticl_d7eqdvw-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvYzA4NDBlNTktZGI0My00NjgxLWFlN2ItMzFhMDRkYzRiYzU1XC9kN2VxZHZ3LTRlOTdhYzkyLWU0YjktNDQ5OC05NjU1LWU0ZDYxMmViNDc4Yi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.X991O1jF5lTNZbbEoHEfoo6nlHEihBMHMIm5-uBCXcU",
+      "phone": "555-9012",
+      "email": "agency3@example.com",
+      "website": "https://www.agency3.com",
+      "events": ["5", "6"]
+    },
+    {
+      "id": "4",
+      "name": "Agency 4",
+      "address": "321 Pine Street",
+      "city": "San Francisco",
+      "country": "USA",
+      "logo": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c0840e59-db43-4681-ae7b-31a04dc4bc55/d7eqdvw-4e97ac92-e4b9-4498-9655-e4d612eb478b.png/v1/fill/w_1192,h_670/random_logo_by_criticl_d7eqdvw-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvYzA4NDBlNTktZGI0My00NjgxLWFlN2ItMzFhMDRkYzRiYzU1XC9kN2VxZHZ3LTRlOTdhYzkyLWU0YjktNDQ5OC05NjU1LWU0ZDYxMmViNDc4Yi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.X991O1jF5lTNZbbEoHEfoo6nlHEihBMHMIm5-uBCXcU",
+      "phone": "555-3456",
+      "email": "agency4@example.com",
+      "website": "https://www.agency4.com",
+      "events": ["7", "8"]
+    },
+    {
+      "id": "5",
+      "name": "Agency 5",
+      "address": "654 Maple Street",
+      "city": "Miami",
+      "country": "USA",
+      "logo": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c0840e59-db43-4681-ae7b-31a04dc4bc55/d7eqdvw-4e97ac92-e4b9-4498-9655-e4d612eb478b.png/v1/fill/w_1192,h_670/random_logo_by_criticl_d7eqdvw-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvYzA4NDBlNTktZGI0My00NjgxLWFlN2ItMzFhMDRkYzRiYzU1XC9kN2VxZHZ3LTRlOTdhYzkyLWU0YjktNDQ5OC05NjU1LWU0ZDYxMmViNDc4Yi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.X991O1jF5lTNZbbEoHEfoo6nlHEihBMHMIm5-uBCXcU",
+      "phone": "555-7890",
+      "email": "agency5@example.com",
+      "website": "https://www.agency5.com",
+      "events": ["9", "10"]
+    },
+    {
+      "id": "6",
+      "name": "Agency 6",
+      "address": "987 Cedar Street",
+      "city": "Seattle",
+      "country": "USA",
+      "logo": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c0840e59-db43-4681-ae7b-31a04dc4bc55/d7eqdvw-4e97ac92-e4b9-4498-9655-e4d612eb478b.png/v1/fill/w_1192,h_670/random_logo_by_criticl_d7eqdvw-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6IlwvZlwvYzA4NDBlNTktZGI0My00NjgxLWFlN2ItMzFhMDRkYzRiYzU1XC9kN2VxZHZ3LTRlOTdhYzkyLWU0YjktNDQ5OC05NjU1LWU0ZDYxMmViNDc4Yi5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.X991O1jF5lTNZbbEoHEfoo6nlHEihBMHMIm5-uBCXcU",
+      "phone": "555-2345",
+      "email": "agency6@example.com",
+      "website": "https://www.agency6.com",
+      "events": ["11", "12"]
     }
   ]
 }

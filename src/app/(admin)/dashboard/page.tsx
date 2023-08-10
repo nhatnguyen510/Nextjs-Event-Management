@@ -1,22 +1,19 @@
 "use client";
 
-import * as React from "react";
-import {
-  Admin,
-  Resource,
-  ListGuesser,
-  EditGuesser,
-  DataProvider,
-} from "react-admin";
+import React from "react";
+import { Admin, Resource, EditGuesser } from "react-admin";
 import { EventListRow } from "@/app/components/EventListRow";
 import { EventListCreate } from "@/app/components/EventListCreate";
 import fakeEvents from "@/../fake-events.json";
 import fakeDataProvider from "ra-data-fakerest";
-import AttendeeListRow from "@/app/components/AttendeeListRow";
 import EventIcon from "@mui/icons-material/Event";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import AdminLayout from "@/app/components/AdminLayout";
-import dynamic from "next/dynamic";
+import Dashboard from "@/app/components/Dashboard";
+import AgencyListRow from "@/app/components/AgencyListRow";
+import { AgencyListCreate } from "@/app/components/AgencyListCreate";
+import { AgencyShow } from "@/app/components/AgencyShow";
+import { EventShow } from "@/app/components/EventShow";
 
 const dataProvider = fakeDataProvider(fakeEvents);
 
@@ -29,18 +26,25 @@ const AdminDashboard: React.FC<AdminProps> = (props) => {
 
   return (
     <>
-      <Admin dataProvider={dataProvider} layout={AdminLayout}>
+      <Admin
+        dataProvider={dataProvider}
+        layout={AdminLayout}
+        dashboard={Dashboard}
+      >
         <Resource
           name="events"
           list={EventListRow}
           edit={EditGuesser}
           create={EventListCreate}
+          show={EventShow}
           icon={EventIcon}
         />
         <Resource
-          name="attendees"
-          list={AttendeeListRow}
+          name="agencies"
+          list={AgencyListRow}
           edit={EditGuesser}
+          create={AgencyListCreate}
+          show={AgencyShow}
           icon={PersonOutlineIcon}
         />
       </Admin>

@@ -7,6 +7,7 @@ const nextConfig = {
         hostname: "api.mobifone.vn",
       },
     ],
+    domains: ["i.pravatar.cc"],
   },
 };
 

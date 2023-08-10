@@ -1,55 +1,51 @@
 "use client";
 
 import React from "react";
-import PropTypes from "prop-types";
 import {
   List,
   Datagrid,
   TextField,
-  EmailField,
   DateField,
-  ReferenceManyField,
   EditButton,
-  Create,
-  SimpleForm,
-  TextInput,
-  DateInput,
-  ReferenceInput,
-  ImageInput,
   ImageField,
+  ReferenceField,
+  NumberField,
 } from "react-admin";
 
+import { EventListAsideFilter } from "./EventListFilter";
+import { EventListActions } from "./EventListActions";
 interface EventListRowProps {
   events?: any;
 }
 
 export const EventListRow: React.FC<EventListRowProps> = ({ events }) => {
   return (
-    <List title="Events" perPage={10} pagination={false} {...events}>
-      <Datagrid>
-        <TextField source="id" />
+    <List
+      title="Events"
+      actions={<EventListActions />}
+      aside={<EventListAsideFilter />}
+      perPage={10}
+      {...events}
+    >
+      <Datagrid rowClick="show">
+        <NumberField source="id" />
         <TextField source="title" />
         <TextField source="description" />
-        <DateField source="date" />
+        <DateField source="date" locales="fr-FR" />
+        <DateField source="endDate" label="End date" locales="fr-FR" />
         <TextField source="location" />
-        <TextField source="organizer" />
+        <ReferenceField source="agency" reference="agencies">
+          <TextField source="name" />
+        </ReferenceField>
         <ImageField source="image" />
-        <TextField source="QRCodeLink" />
-        <ReferenceManyField
+        <TextField source="QRCodeLink" label="QR code link" />
+        <NumberField
+          source="numOfAttendees"
           label="Attendees"
-          reference="attendees"
-          target="events"
-        >
-          <Datagrid>
-            <TextField source="name" />
-          </Datagrid>
-        </ReferenceManyField>
+          sortByOrder="DESC"
+        />
         <EditButton />
       </Datagrid>
     </List>
   );
-};
-
-EventListRow.propTypes = {
-  events: PropTypes.object,
 };

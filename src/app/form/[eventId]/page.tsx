@@ -117,7 +117,7 @@ const EventForm: React.FC<EventFormProps> = ({ params: { eventId } }) => {
             <Form.Item
               name={["user", "email"]}
               label={<p style={{ fontWeight: "bold" }}>Email</p>}
-              rules={[{ type: "email", required: true }]}
+              rules={[{ type: "email" }]}
             >
               <Input placeholder="Email của bạn" prefix={<MailOutlined />} />
             </Form.Item>
@@ -130,6 +130,16 @@ const EventForm: React.FC<EventFormProps> = ({ params: { eventId } }) => {
             <Form.Item
               name={["user", "phone"]}
               label={<p style={{ fontWeight: "bold" }}>SĐT</p>}
+              rules={[
+                {
+                  required: true,
+                  message: "Số điện thoại là bắt buộc",
+                },
+                {
+                  pattern: phoneRegex,
+                  message: "Số điện thoại không hợp lệ",
+                },
+              ]}
               validateStatus={phoneError ? "error" : ""}
               help={phoneError}
             >
