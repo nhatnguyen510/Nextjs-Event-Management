@@ -65,73 +65,77 @@ const Header: React.FC = () => {
   }
 
   return (
-    <Box component="nav" sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color="transparent">
-        <Toolbar variant="dense">
-          <Box flex={1} display="flex" justifyContent="space-between">
-            <Box display="flex" alignItems="center">
-              <Box
-                component="img"
-                sx={{
-                  marginRight: "1em",
-                  height: 30,
-                  display: "flex",
-                  alignItems: "center",
-                }}
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MobiFone_logo.svg/2560px-MobiFone_logo.svg.png"
-                alt="Mobifone Logo"
+    <AppBar
+      position="static"
+      color="transparent"
+      sx={{
+        backgroundColor: "#239eff",
+      }}
+    >
+      <Toolbar variant="dense">
+        <Box flex={1} display="flex" justifyContent="space-between">
+          <Box display="flex" alignItems="center">
+            <Box
+              component="img"
+              sx={{
+                marginRight: "1em",
+                height: 30,
+                display: "flex",
+                alignItems: "center",
+              }}
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/MobiFone_logo.svg/2560px-MobiFone_logo.svg.png"
+              alt="Mobifone Logo"
+            />
+          </Box>
+          <Box>
+            <StyledTabs aria-label="Navigation Tabs" value={value}>
+              <StyledTab
+                label={"Dashboard"}
+                component={Link}
+                to="/"
+                value="/"
               />
-            </Box>
-            <Box>
-              <StyledTabs aria-label="Navigation Tabs" value={value}>
-                <StyledTab
-                  label={"Dashboard"}
-                  component={Link}
-                  to="/"
-                  value="/"
-                />
-                <StyledTab
-                  label={"Events"}
-                  component={Link}
-                  to="/events"
-                  value="/events"
-                />
-                <StyledTab
-                  label={"Agencies"}
-                  component={Link}
-                  to="/agencies"
-                  value="/agencies"
-                />
-                {/* <StyledTab
+              <StyledTab
+                label={"Events"}
+                component={Link}
+                to="/events"
+                value="/events"
+              />
+              <StyledTab
+                label={"Agencies"}
+                component={Link}
+                to="/agencies"
+                value="/agencies"
+              />
+              {/* <StyledTab
                   label={"Attendees"}
                   component={Link}
                   to="/attendees"
                   value="/attendees"
                 /> */}
-              </StyledTabs>
-            </Box>
-            <Box display="flex" alignItems="center">
-              <LoadingIndicator
-                sx={{
-                  "& .RaLoadingIndicator-loader": {
-                    marginTop: 2,
-                  },
+            </StyledTabs>
+          </Box>
+          <Box display="flex" alignItems="center">
+            <LoadingIndicator
+              sx={{
+                "& .RaLoadingIndicator-loader": {
+                  marginTop: 2,
+                },
+              }}
+            />
+            <UserMenu>
+              <Logout
+                onClick={async () => {
+                  await signOut({
+                    callbackUrl: "/login",
+                  });
                 }}
               />
-              <UserMenu>
-                <Logout
-                  onClick={async () => {
-                    await signOut({
-                      callbackUrl: "/login",
-                    });
-                  }}
-                />
-              </UserMenu>
-            </Box>
+            </UserMenu>
           </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
+        </Box>
+      </Toolbar>
+    </AppBar>
   );
 };
 

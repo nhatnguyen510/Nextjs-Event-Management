@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Container, Typography } from "@mui/material";
+import React from "react";
+import { Grid, Typography, Box } from "@mui/material";
 import ListOfEvents from "@/../fake-events.json";
 import EventCard from "./EventCard";
 import EventIcon from "@mui/icons-material/Event";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
 import useEventTypes from "../../../lib/hooks/useEventTypes";
-import queryString from "query-string";
 import useEncodedURL from "../../../lib/hooks/useEncodedURL";
 
 interface DashboardProps {}
@@ -26,61 +25,56 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
 
   return (
     <>
-      <Grid container spacing={2} mt={4} justifyContent="right">
-        <Grid item xs={12} md={9}>
-          <Grid container>
-            <Grid item xs={12}>
-              <Typography variant="h4" component="h1" gutterBottom>
-                Dashboard
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Welcome to the dashboard. Here you can see the statistics of
-                your events.
-              </Typography>
-            </Grid>
-            <Grid item mt={4} xs={12}>
-              <Grid
-                container
-                spacing={{ xs: 2, md: 3 }}
-                columns={{ xs: 4, sm: 8, md: 12 }}
-                direction="row"
-                alignItems="center"
-              >
-                <Grid item xs={2} sm={4} md={4}>
-                  <EventCard
-                    title="Upcoming events"
-                    color="#FFF4DE"
-                    icon={<EventIcon />}
-                    iconBgColor="#FF947A"
-                    numberOfEvents={upcomingEvents.length}
-                    link={upcomingEventsURL}
-                  />
-                </Grid>
-                <Grid item xs={2} sm={4} md={4}>
-                  <EventCard
-                    title="Ongoing events"
-                    color="#DCFCE7"
-                    icon={<EventAvailableIcon />}
-                    iconBgColor="#3CD856"
-                    numberOfEvents={ongoingEvents.length}
-                    link={ongoingEventsURL}
-                  />
-                </Grid>
-                <Grid item xs={2} sm={4} md={4}>
-                  <EventCard
-                    title="Past events"
-                    color="#FFE2E5"
-                    icon={<EventBusyIcon />}
-                    iconBgColor="#FA5A7D"
-                    numberOfEvents={pastEvents.length}
-                    link={pastEventsURL}
-                  />
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
+      <Box mt={2}>
+        <Typography variant="h4" component="h1" gutterBottom>
+          Dashboard
+        </Typography>
+        <Typography variant="body1" gutterBottom>
+          Chào mừng bạn đến với trang quản trị của chúng tôi. Bạn có thể thêm,
+          sửa, xóa các sự kiện, đơn vị, người dùng, ...
+        </Typography>
+      </Box>
+      <Grid
+        container
+        mt={4}
+        spacing={2}
+        sx={{
+          backgroundColor: "#FFF",
+          borderRadius: "1rem",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          padding: "20px",
+        }}
+      >
+        <Grid item xs={12} md={4}>
+          <EventCard
+            title="SẮP DIỄN RA"
+            color="#FFF4DE"
+            icon={<EventIcon />}
+            iconBgColor="#FF947A"
+            numberOfEvents={upcomingEvents.length}
+            link={upcomingEventsURL}
+          />
         </Grid>
-        <Grid item xs={12} md={6}></Grid>
+        <Grid item xs={12} md={4}>
+          <EventCard
+            title="ĐANG DIỄN RA"
+            color="#DCFCE7"
+            icon={<EventAvailableIcon />}
+            iconBgColor="#3CD856"
+            numberOfEvents={ongoingEvents.length}
+            link={ongoingEventsURL}
+          />
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <EventCard
+            title="ĐÃ KẾT THÚC"
+            color="#FFE2E5"
+            icon={<EventBusyIcon />}
+            iconBgColor="#FA5A7D"
+            numberOfEvents={pastEvents.length}
+            link={pastEventsURL}
+          />
+        </Grid>
       </Grid>
     </>
   );

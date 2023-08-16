@@ -3,28 +3,17 @@ import React from "react";
 import {
   Show,
   TextField,
-  TabbedShowLayout,
-  Tab,
   ReferenceManyField,
   Datagrid,
   useGetRecordId,
   useGetList,
   EmailField,
   ImageField,
-  useRecordContext,
-  DateField,
-  ReferenceField,
   SimpleShowLayout,
-  CreateButton,
   ExportButton,
-  SortButton,
   TopToolbar,
   EditButton,
-  ListButton,
 } from "react-admin";
-
-import { Box, Grid } from "@mui/material";
-import { AttendeeListCreate } from "./AttendeeListCreate";
 
 interface EventShowProps {}
 
@@ -55,10 +44,10 @@ export const EventShow: React.FC<EventShowProps> = (props) => {
                 },
               }}
             />
-            <TextField source="name" />
-            <EmailField source="email" />
-            <TextField source="phone" />
-            <TextField source="agency" />
+            <TextField source="name" label="Tên" />
+            <EmailField source="email" label="Email" />
+            <TextField source="phone" label="SĐT" />
+            <TextField source="agency" label="Đơn vị" />
           </Datagrid>
         </ReferenceManyField>
       </Show>
@@ -73,9 +62,9 @@ const ShowAside: React.FC = () => {
       {/* <DateField source="updated_at" showTime />
       <ReferenceField source="customer_id" reference="customers" link="show" />
       <ReferenceField source="product_id" reference="products" link="show" /> */}
-      <ImageField source="image" label="" />
-      <TextField source="date" label="Date" />
-      <TextField source="endDate" label="End Date" />
+      <ImageField source="image" />
+      <TextField source="date" label="Ngày bắt đầu" />
+      <TextField source="endDate" label="Ngày kết thúc" />
     </SimpleShowLayout>
   );
 };

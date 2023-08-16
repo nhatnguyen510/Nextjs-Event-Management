@@ -6,6 +6,7 @@ import {
   Typography,
   Grid,
   CardActionArea,
+  Container,
 } from "@mui/material";
 import { Link } from "react-admin";
 import { Link as RouterLink } from "react-router-dom";
@@ -35,32 +36,34 @@ const EventCard: React.FC<EventCardProps> = ({
             backgroundColor: color,
             color: "#000",
             padding: "4px",
-            borderRadius: "1rem",
+            borderRadius: "10px",
             boxShadow: "0 0 10px rgba(0,0,0,0.2)",
             cursor: "pointer",
-            height: 240,
-            maxWidth: 342,
+            height: {
+              xs: "240px",
+              xl: "300px",
+            },
           }}
         >
-          <CardActionArea>
+          <CardActionArea
+            sx={{
+              height: "100%",
+            }}
+          >
             <CardContent>
-              <Grid
-                container
-                direction="column"
-                justifyContent="center"
-                gap={2}
-              >
+              <Container>
                 <Avatar sx={{ bgcolor: iconBgColor }}>{icon}</Avatar>
                 <Typography
                   variant="h4"
                   sx={{
                     fontSize: "24px",
                     fontWeight: "700",
+                    mt: 2,
                   }}
                 >
                   {title}
                 </Typography>
-              </Grid>
+              </Container>
               <Typography
                 variant="h2"
                 mt={2}

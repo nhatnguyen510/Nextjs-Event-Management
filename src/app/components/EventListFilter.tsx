@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   FilterList,
   FilterLiveSearch,
@@ -18,7 +18,7 @@ export const EventListAsideFilter: React.FC = () => {
   console.log({ upcomingEvents, ongoingEvents, pastEvents });
 
   return (
-    <Box width="13em" minWidth="13em" order={-1} mr={2} mt={7}>
+    <Box width="100%" minWidth="13em" order={-1} mr={2} mt={2} flex={1}>
       <FilterLiveSearch
         sx={{
           display: "block",
@@ -27,17 +27,37 @@ export const EventListAsideFilter: React.FC = () => {
         source="title"
         placeholder="Search by title"
       />
-      <FilterList label="Events" icon={<AccessTimeIcon />}>
+      <FilterList
+        label="Events"
+        icon={<AccessTimeIcon />}
+        sx={{
+          display: "flex",
+          justifyContent: "right",
+          gap: "1em",
+          alignItems: "center",
+          "& .MuiList-root": {
+            display: "flex",
+          },
+          "& .MuiBox-root": {
+            mt: 0,
+          },
+
+          "& .Mui-selected": {
+            backgroundColor: "rgba(25, 118, 210, 0.3) !important",
+          },
+        }}
+      >
         <FilterListItem
           label={
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between",
+                width: "8em",
               }}
             >
-              Ongoing <Status status="ongoing" />
+              <Typography fontSize={14}>Đang diễn ra</Typography>
+              <Status status="ongoing" />
             </Box>
           }
           value={{ id: ongoingEvents?.map((event: any) => event.id) }}
@@ -48,10 +68,11 @@ export const EventListAsideFilter: React.FC = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between",
+                width: "8em",
               }}
             >
-              Upcoming <Status status="upcoming" />
+              <Typography fontSize={14}>Sắp diễn ra</Typography>
+              <Status status="upcoming" />
             </Box>
           }
           value={{ id: upcomingEvents?.map((event: any) => event.id) }}
@@ -62,10 +83,11 @@ export const EventListAsideFilter: React.FC = () => {
               sx={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between",
+                width: "8em",
               }}
             >
-              Past <Status status="past" />
+              <Typography fontSize={14}>Đã kết thúc</Typography>
+              <Status status="past" />
             </Box>
           }
           value={{ id: pastEvents?.map((event: any) => event.id) }}

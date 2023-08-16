@@ -19,6 +19,7 @@
     "query-string": "^8.1.0",
     "ra-data-fakerest": "^4.12.2",
     "ra-data-json-server": "^4.12.2",
+    "ra-language-vietnamese": "^3.0.1",
     "react": "18.2.0",
     "react-admin": "^4.12.2",
     "react-dom": "18.2.0",

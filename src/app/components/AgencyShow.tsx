@@ -28,7 +28,7 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
       <Show>
         <TextField source="name" variant="h5" component="div" m={2} />
         <TabbedShowLayout>
-          <Tab label="Ongoing events" count={ongoingEvents.length}>
+          <Tab label="Đang diễn ra" count={ongoingEvents.length}>
             {ongoingEvents.length > 0 ? (
               <ReferenceManyField
                 label={false}
@@ -37,18 +37,21 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
               >
                 <Datagrid rowClick="show">
                   <TextField source="id" />
-                  <TextField source="title" />
-                  <TextField source="date" />
-                  <TextField source="endDate" />
-                  <TextField source="attendees.length" label="Attendees" />
+                  <TextField source="title" label="Tên sự kiện" />
+                  <TextField source="date" label="Ngày bắt đầu" />
+                  <TextField source="endDate" label="Ngày kết thúc" />
+                  <TextField
+                    source="attendees.length"
+                    label="Số lượng tham gia"
+                  />
                 </Datagrid>
               </ReferenceManyField>
             ) : (
-              <p>No ongoing events</p>
+              <p>Chưa có sự kiện nào đang diễn ra.</p>
             )}
           </Tab>
 
-          <Tab label="Upcoming events" count={upcomingEvents.length}>
+          <Tab label="Sắp diễn ra" count={upcomingEvents.length}>
             {upcomingEvents.length > 0 ? (
               <ReferenceManyField
                 label={false}
@@ -57,18 +60,21 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
               >
                 <Datagrid rowClick="show">
                   <TextField source="id" />
-                  <TextField source="title" />
-                  <TextField source="date" />
-                  <TextField source="endDate" />
-                  <TextField source="attendees.length" label="Attendees" />
+                  <TextField source="title" label="Tên sự kiện" />
+                  <TextField source="date" label="Ngày bắt đầu" />
+                  <TextField source="endDate" label="Ngày kết thúc" />
+                  <TextField
+                    source="attendees.length"
+                    label="Số lượng tham gia"
+                  />
                 </Datagrid>
               </ReferenceManyField>
             ) : (
-              <p>No upcoming events</p>
+              <p>Chưa có sự kiện nào sắp diễn ra.</p>
             )}
           </Tab>
 
-          <Tab label="Past events" count={pastEvents.length}>
+          <Tab label="Đã kết thúc" count={pastEvents.length}>
             {pastEvents.length > 0 ? (
               <ReferenceManyField
                 label={false}
@@ -77,14 +83,17 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
               >
                 <Datagrid rowClick="show">
                   <TextField source="id" />
-                  <TextField source="title" />
-                  <TextField source="date" />
-                  <TextField source="endDate" />
-                  <TextField source="attendees.length" label="Attendees" />
+                  <TextField source="title" label="Tên sự kiện" />
+                  <TextField source="date" label="Ngày bắt đầu" />
+                  <TextField source="endDate" label="Ngày kết thúc" />
+                  <TextField
+                    source="attendees.length"
+                    label="Số lượng tham gia"
+                  />
                 </Datagrid>
               </ReferenceManyField>
             ) : (
-              <p>No past events</p>
+              <p>Chưa có sự kiện nào kết thúc.</p>
             )}
           </Tab>
         </TabbedShowLayout>

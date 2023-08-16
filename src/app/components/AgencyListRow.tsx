@@ -12,6 +12,7 @@ import {
   ImageField,
   ReferenceManyCount,
 } from "react-admin";
+import { Actions } from "./EventListActions";
 
 interface AgencyListRowProps {
   agencies?: any;
@@ -19,17 +20,23 @@ interface AgencyListRowProps {
 
 const AgencyListRow: React.FC<AgencyListRowProps> = ({ agencies }) => {
   return (
-    <List title="agencies" perPage={10} pagination={false} {...agencies}>
+    <List
+      title="agencies"
+      actions={<Actions />}
+      perPage={10}
+      pagination={false}
+      {...agencies}
+    >
       <Datagrid rowClick="show">
         <TextField source="id" />
-        <TextField source="name" />
-        <TextField source="address" />
-        <TextField source="city" />
-        <TextField source="country" />
-        <ImageField source="logo" />
-        <TextField source="phone" />
-        <EmailField source="email" />
-        <TextField source="website" />
+        <TextField source="name" label="Tên" />
+        <TextField source="address" label="Địa chỉ" />
+        <TextField source="city" label="Công ty" />
+        <TextField source="country" label="Quốc gia" />
+        <ImageField source="logo" label="Logo" />
+        <TextField source="phone" label="SĐT" />
+        <EmailField source="email" label="Email" />
+        <TextField source="website" label="Website" />
         <ReferenceManyCount label="events" reference="events" target="agency" />
         <EditButton />
       </Datagrid>
