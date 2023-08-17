@@ -7,6 +7,7 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
 import useEventTypes from "../../../lib/hooks/useEventTypes";
 import useEncodedURL from "../../../lib/hooks/useEncodedURL";
+import { TitlePortal } from "react-admin";
 
 interface DashboardProps {}
 
@@ -25,7 +26,7 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
 
   return (
     <>
-      <Box mt={2}>
+      <Box mt={2} sx={{}}>
         <Typography variant="h4" component="h1" gutterBottom>
           Dashboard
         </Typography>

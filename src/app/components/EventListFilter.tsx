@@ -18,7 +18,20 @@ export const EventListAsideFilter: React.FC = () => {
   console.log({ upcomingEvents, ongoingEvents, pastEvents });
 
   return (
-    <Box width="100%" minWidth="13em" order={-1} mr={2} mt={2} flex={1}>
+    <Box
+      width="100%"
+      minWidth="13em"
+      order={-1}
+      mr={2}
+      mt={2}
+      flex={1}
+      sx={{
+        backgroundColor: "#FFF",
+        borderRadius: "5px",
+        boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+        padding: "20px",
+      }}
+    >
       <FilterLiveSearch
         sx={{
           display: "block",
