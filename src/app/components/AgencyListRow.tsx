@@ -13,6 +13,7 @@ import {
   ReferenceManyCount,
 } from "react-admin";
 import { Actions } from "./EventListActions";
+import { AgencyListAsideFilter } from "./AgencyListFilter";
 
 interface AgencyListRowProps {
   agencies?: any;
@@ -23,9 +24,13 @@ const AgencyListRow: React.FC<AgencyListRowProps> = ({ agencies }) => {
     <List
       title="agencies"
       actions={<Actions />}
+      aside={<AgencyListAsideFilter />}
       perPage={10}
-      pagination={false}
       {...agencies}
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+      }}
     >
       <Datagrid rowClick="show">
         <TextField source="id" />
@@ -38,7 +43,7 @@ const AgencyListRow: React.FC<AgencyListRowProps> = ({ agencies }) => {
         <EmailField source="email" label="Email" />
         <TextField source="website" label="Website" />
         <ReferenceManyCount label="events" reference="events" target="agency" />
-        <EditButton />
+        <EditButton label="Sửa" />
       </Datagrid>
     </List>
   );

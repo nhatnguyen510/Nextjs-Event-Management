@@ -65,7 +65,7 @@ export const EventList: React.FC<EventListProps> = ({ eventList }) => {
   const displayRender = (labels: string[]) => labels[labels.length - 1];
   return (
     <>
-      <Title level={2}>All Events</Title>
+      <Title level={2}>Tất cả sự kiện</Title>
 
       <Cascader
         size="large"
@@ -104,7 +104,7 @@ export const EventList: React.FC<EventListProps> = ({ eventList }) => {
               className="flex justify-center items-center"
               onClick={onBtnClick}
             >
-              Continue
+              Xem chi tiết
             </Button>
           </div>
         </Card>

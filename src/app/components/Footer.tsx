@@ -28,37 +28,46 @@ const CustomFooter: React.FC<FooterProps> = (props) => {
             <Image src={MobifoneLogo} alt="logo" width={200} height={50} />
           </Col>
           <Col span={8}>
-            <p>Event App ©2023 Created by Mobifone</p>
+            <p>Event App ©2023 - Mobifone</p>
             <p>
-              Address: 236a Phan Trung Street, Tan Tien Ward, Bien Hoa City,
-              Dong Nai Province
+              Địa chỉ: 236a Phan Trung, P.Tân Tiến, TP.Biên Hòa, Tỉnh Đồng Nai
             </p>
             <p>Email: c8_khcn@mobifone.vn</p>
             <p>Hotline: 18001090</p>
           </Col>
           <Col span={8}>
             <p>
-              <Link href="/">Home</Link>
+              <Link href="/">Trang chủ</Link>
             </p>
             <p>
-              <Link href="/">Introduction</Link>
+              <Link href="/">Giới thiệu</Link>
             </p>
             <p>
-              <Link href="/">Events</Link>
+              <Link href="/">Sự kiện</Link>
             </p>
             <p>
-              <Link href="/">Promotion</Link>
+              <Link href="/">Quảng cáo</Link>
             </p>
             <p>
-              <Link href="/">News</Link>
+              <Link href="/">Tin tức</Link>
             </p>
           </Col>
           <Col span={8}>
-            <p>Follow us!</p>
-            <p>Facebook</p>
-            <p>Youtube</p>
-            <p>Instagram</p>
-            <p>Zalo</p>
+            <p>
+              <Link href="/">Theo dõi chúng tôi!</Link>
+            </p>
+            <p>
+              <Link href="/">Facebook</Link>
+            </p>
+            <p>
+              <Link href="/">Youtube</Link>
+            </p>
+            <p>
+              <Link href="/">Instagram</Link>
+            </p>
+            <p>
+              <Link href="/">Zalo</Link>
+            </p>
           </Col>
         </Row>
       </Footer>

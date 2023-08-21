@@ -18,27 +18,27 @@ export const AgencyListCreate: React.FC<AgencyListCreateProps> = ({}) => {
           <Box ml={2} flex="1" maxWidth={796}>
             <Grid container spacing={2}>
               <Grid item xs={6}>
-                <TextInput source="name" fullWidth />
+                <TextInput source="name" fullWidth label="Họ tên" />
               </Grid>
               <Grid item xs={6}>
-                <TextInput source="address" fullWidth />
+                <TextInput source="address" fullWidth label="Địa chỉ" />
               </Grid>
               <Divider sx={{ mb: 2, width: "100%" }} />
               <Grid item xs={4}>
-                <TextInput source="city" fullWidth />
+                <TextInput source="city" fullWidth label="Thành phố" />
               </Grid>
               <Grid item xs={4}>
-                <TextInput source="country" fullWidth />
+                <TextInput source="country" fullWidth label="Quốc gia" />
               </Grid>
               <Grid item xs={4}>
-                <TextInput source="phone" fullWidth />
+                <TextInput source="phone" fullWidth label="SĐT" />
               </Grid>
               <Divider sx={{ mb: 2, width: "100%" }} />
               <Grid item xs={6}>
-                <TextInput source="email" fullWidth />
+                <TextInput source="email" fullWidth label="Email" />
               </Grid>
               <Grid item xs={6}>
-                <TextInput source="website" fullWidth />
+                <TextInput source="website" fullWidth label="Website" />
               </Grid>
               <Divider sx={{ mb: 2, width: "100%" }} />
             </Grid>

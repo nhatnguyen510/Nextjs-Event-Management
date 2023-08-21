@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Typography, Box } from "@mui/material";
+import { Grid, Typography, Box, Divider } from "@mui/material";
 import ListOfEvents from "@/../fake-events.json";
 import EventCard from "./EventCard";
 import EventIcon from "@mui/icons-material/Event";
@@ -7,7 +7,7 @@ import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
 import useEventTypes from "../../../lib/hooks/useEventTypes";
 import useEncodedURL from "../../../lib/hooks/useEncodedURL";
-import { TitlePortal } from "react-admin";
+import BarChart from "./BarChart";
 
 interface DashboardProps {}
 
@@ -23,6 +23,31 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
   const upcomingEventsURL = useEncodedURL(upcomingEventsIds);
   const ongoingEventsURL = useEncodedURL(ongoingEventsIds);
   const pastEventsURL = useEncodedURL(pastEventsIds);
+
+  // Prepare event counts by month
+  const eventCountsByMonth: Record<
+    string,
+    { ongoing: number; upcoming: number; past: number }
+  > = {};
+
+  [...ongoingEvents, ...upcomingEvents, ...pastEvents].forEach((event) => {
+    const eventDate = new Date(event.date);
+    const monthYear = `${eventDate.getMonth() + 1}-${eventDate.getFullYear()}`;
+
+    if (!eventCountsByMonth[monthYear]) {
+      eventCountsByMonth[monthYear] = { ongoing: 0, upcoming: 0, past: 0 };
+    }
+
+    if (ongoingEvents.includes(event)) {
+      eventCountsByMonth[monthYear].ongoing++;
+    } else if (upcomingEvents.includes(event)) {
+      eventCountsByMonth[monthYear].upcoming++;
+    } else if (pastEvents.includes(event)) {
+      eventCountsByMonth[monthYear].past++;
+    }
+  });
+
+  console.log({ eventCountsByMonth });
 
   return (
     <>
@@ -77,6 +102,11 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
           />
         </Grid>
       </Grid>
+      <Divider sx={{ mt: 4, mb: 2 }} />
+      <BarChart
+        title="Thống kê số lượng sự kiện theo tháng"
+        eventCountsByMonth={eventCountsByMonth}
+      />
     </>
   );
 };

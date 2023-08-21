@@ -18,27 +18,22 @@ const Navbar: React.FC<NavbarProps> = (props) => {
     const baseItems = [
       {
         key: "home",
-        label: "Home",
-        slug: "/",
-      },
-      {
-        key: "events",
-        label: "Events",
+        label: "Trang chủ",
         slug: "/",
       },
       {
         key: "user-info",
-        label: `Welcome, ${session?.user?.name || ""}!`,
+        label: `Xin chào, ${session?.user?.name || ""}!`,
         children: [
           {
             key: "settings",
-            label: "Settings",
+            label: "Cài đặt",
             slug: "/settings",
             icon: <SettingOutlined />,
           },
           {
             key: "logout",
-            label: "Logout",
+            label: "Đăng xuất",
             slug: "/logout",
             icon: <LogoutOutlined />,
           },
@@ -50,7 +45,7 @@ const Navbar: React.FC<NavbarProps> = (props) => {
     if (session?.user?.name === "admin") {
       baseItems.splice(1, 0, {
         key: "dashboard",
-        label: "Dashboard",
+        label: "Quản lý",
         slug: "/dashboard",
       });
     }
@@ -89,7 +84,22 @@ const Navbar: React.FC<NavbarProps> = (props) => {
           background: "#fff",
         }}
       >
-        <Image src={MobifoneLogo} alt="logo" width={200} height={50} />
+        <div className="w-[200px] h-full flex items-center">
+          <Image
+            src={MobifoneLogo}
+            alt="logo"
+            width={0}
+            height={0}
+            style={{
+              width: "100%",
+              height: "auto",
+              cursor: "pointer",
+            }}
+            onClick={() => {
+              router.push("/");
+            }}
+          />
+        </div>
         <Menu
           theme="light"
           mode="horizontal"

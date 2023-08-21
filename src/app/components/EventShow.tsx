@@ -73,7 +73,15 @@ const ShowActions: React.FC = ({}) => {
   return (
     <>
       <TopToolbar>
-        <EditButton />
+        <EditButton
+          sx={{
+            color: "white",
+            backgroundColor: "primary.main",
+            "&:hover": {
+              backgroundColor: "primary.dark",
+            },
+          }}
+        />
         <ExportButton />
       </TopToolbar>
     </>

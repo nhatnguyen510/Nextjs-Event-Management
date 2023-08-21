@@ -52,7 +52,7 @@ export const EventListRow: React.FC<EventListRowProps> = ({ events }) => {
           label="Số lượng tham gia"
           sortByOrder="DESC"
         />
-        <EditButton />
+        <EditButton label="Sửa" />
       </Datagrid>
     </List>
   );

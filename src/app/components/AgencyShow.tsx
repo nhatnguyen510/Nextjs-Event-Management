@@ -28,8 +28,8 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
       <Show>
         <TextField source="name" variant="h5" component="div" m={2} />
         <TabbedShowLayout>
-          <Tab label="Đang diễn ra" count={ongoingEvents.length}>
-            {ongoingEvents.length > 0 ? (
+          <Tab label="Đang diễn ra" count={ongoingEvents?.length}>
+            {ongoingEvents?.length > 0 ? (
               <ReferenceManyField
                 label={false}
                 reference="events"
@@ -51,8 +51,8 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
             )}
           </Tab>
 
-          <Tab label="Sắp diễn ra" count={upcomingEvents.length}>
-            {upcomingEvents.length > 0 ? (
+          <Tab label="Sắp diễn ra" count={upcomingEvents?.length}>
+            {upcomingEvents?.length > 0 ? (
               <ReferenceManyField
                 label={false}
                 reference="events"
@@ -74,8 +74,8 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
             )}
           </Tab>
 
-          <Tab label="Đã kết thúc" count={pastEvents.length}>
-            {pastEvents.length > 0 ? (
+          <Tab label="Đã kết thúc" count={pastEvents?.length}>
+            {pastEvents?.length > 0 ? (
               <ReferenceManyField
                 label={false}
                 reference="events"
