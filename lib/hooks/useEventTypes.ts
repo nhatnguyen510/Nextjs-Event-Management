@@ -1,33 +1,40 @@
-import { useEffect, useState } from "react";
-import { Event } from "../types/Event";
+import { Event } from "../types/types";
 
-const useEventTypes = (events: any) => {
-  const [ongoingEvents, setOngoingEvents] = useState<Event[]>([]);
-  const [upcomingEvents, setUpcomingEvents] = useState<Event[]>([]);
-  const [pastEvents, setPastEvents] = useState<Event[]>([]);
+const useEventTypes = (events: Event[]) => {
+  const currentDate = new Date();
 
-  useEffect(() => {
-    const currentDate = new Date();
-
-    const ongoing = events?.filter((event: any) => {
+  const ongoingEvents = events
+    ?.filter((event) => {
       const eventDate = new Date(event.date);
       return eventDate <= currentDate && currentDate <= new Date(event.endDate);
+    })
+    .sort((a, b) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+      return aDate.getTime() - bDate.getTime();
     });
 
-    const upcoming = events?.filter((event: any) => {
+  const upcomingEvents = events
+    ?.filter((event) => {
       const eventDate = new Date(event.date);
       return eventDate > currentDate;
+    })
+    .sort((a, b) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+      return aDate.getTime() - bDate.getTime();
     });
 
-    const past = events?.filter((event: any) => {
+  const pastEvents = events
+    ?.filter((event) => {
       const eventEndDate = new Date(event.endDate);
       return eventEndDate < currentDate;
+    })
+    .sort((a, b) => {
+      const aDate = new Date(a.date);
+      const bDate = new Date(b.date);
+      return aDate.getTime() - bDate.getTime();
     });
-
-    setOngoingEvents(ongoing);
-    setUpcomingEvents(upcoming);
-    setPastEvents(past);
-  }, [events]);
 
   return { ongoingEvents, upcomingEvents, pastEvents };
 };

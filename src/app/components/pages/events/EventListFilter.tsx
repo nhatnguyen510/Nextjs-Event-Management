@@ -10,20 +10,21 @@ import {
   OutlinedInput,
   Chip,
   MenuItem,
-  IconButton,
 } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material/Select";
 import { Theme, useTheme } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
-import useEventTypes from "../../../lib/hooks/useEventTypes";
-import { Status } from "./Status";
+import useEventTypes from "@/../lib/hooks/useEventTypes";
+import { Status } from "../../Status";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
-import filterDate from "../../../lib/hooks/useFilterDate";
-import { Event } from "../../../lib/types/Event";
-import { Link } from "react-router-dom";
+import filterDate from "@/../lib/hooks/useFilterDate";
+import { Event } from "@/../lib/types/types";
+import { Link, useNavigate } from "react-router-dom";
 import _ from "lodash";
+import { eventTypesStore } from "@/../lib/zustand/EventTypesStore";
+import useEncodedURL from "@/../lib/hooks/useEncodedURL";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -61,30 +62,34 @@ function getStyles(event: string, events: readonly string[], theme: Theme) {
 }
 
 export const EventListAsideFilter: React.FC = () => {
+  const navigate = useNavigate();
   const { data } = useGetList("events");
   const theme = useTheme();
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
-  const [eventTypes, setEventTypes] = React.useState<string[]>([]);
+  const eventTypes = eventTypesStore((state) => state.eventTypes);
+  const setEventTypes = eventTypesStore((state) => state.setEventTypes);
 
   const [searchedEvents, setSearchedEvents] = useState<Event[]>([]);
-  const { upcomingEvents, ongoingEvents, pastEvents } = useEventTypes(data);
+  const { upcomingEvents, ongoingEvents, pastEvents } = useEventTypes(
+    data as Event[]
+  );
 
   const eventTypesData = useMemo(() => {
     // this is the event result if users choose event type
     const result = [];
-    if (eventTypes.includes("upcoming")) {
+    if (eventTypes?.includes("upcoming") && upcomingEvents) {
       result.push(...upcomingEvents);
     }
-    if (eventTypes.includes("ongoing")) {
+    if (eventTypes?.includes("ongoing") && ongoingEvents) {
       result.push(...ongoingEvents);
     }
-    if (eventTypes.includes("past")) {
+    if (eventTypes?.includes("past") && pastEvents) {
       result.push(...pastEvents);
     }
 
     return result;
-  }, [eventTypes]);
+  }, [eventTypes, upcomingEvents, ongoingEvents, pastEvents]);
 
   const filterDateEvents = useMemo(() => {
     if (startDate && endDate) {
@@ -116,9 +121,13 @@ export const EventListAsideFilter: React.FC = () => {
     } else if (result3.length > 0) {
       return result3;
     } else {
-      return [];
+      return data;
     }
   }, [searchedEvents, eventTypesData, filterDateEvents]);
+
+  const encodedURL = useEncodedURL(
+    result?.map((event: Event) => event.id) as string[]
+  );
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
@@ -148,7 +157,13 @@ export const EventListAsideFilter: React.FC = () => {
     setEndDate(date);
   };
 
-  console.log({ result });
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      navigate(`/events${encodedURL}`);
+    }
+  };
+
+  console.log({ eventTypes });
 
   return (
     <Box
@@ -183,6 +198,7 @@ export const EventListAsideFilter: React.FC = () => {
             inputProps={{ "aria-label": "Tìm kiếm" }}
             startAdornment={<SearchIcon />}
             onChange={handleSearch}
+            onKeyDown={handleKeyDown}
           />
         </FormControl>
 
@@ -285,12 +301,7 @@ export const EventListAsideFilter: React.FC = () => {
         <Box
           key="filter"
           component={Link}
-          to={{
-            pathname: "/events",
-            search: `filter=${JSON.stringify({
-              id: result?.map((event: Event) => event.id),
-            })}`,
-          }}
+          to={encodedURL}
           sx={{
             height: "100%",
             marginTop: "8px",

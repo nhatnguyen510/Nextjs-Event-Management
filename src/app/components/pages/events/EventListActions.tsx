@@ -9,8 +9,10 @@ import {
 import { Button, Box } from "@mui/material";
 import { Send } from "@mui/icons-material";
 import { Link } from "react-router-dom";
+import { createDialogStore } from "@/../lib/zustand/EventDialogStore";
 
 export const Actions: React.FC = ({}) => {
+  const setIsDialogOpen = createDialogStore((state) => state.setIsDialogOpen);
   return (
     <>
       <TopToolbar
@@ -19,8 +21,7 @@ export const Actions: React.FC = ({}) => {
           marginTop: "1rem",
         }}
       >
-        <CreateButton
-          label="Thêm mới"
+        <Button
           sx={{
             backgroundColor: "#1976d2",
             color: "#fff",
@@ -28,7 +29,10 @@ export const Actions: React.FC = ({}) => {
               backgroundColor: "#115293",
             },
           }}
-        />
+          onClick={() => setIsDialogOpen(true)}
+        >
+          Thêm mới
+        </Button>
         <ExportButton label="Xuất file" />
       </TopToolbar>
     </>

@@ -3,22 +3,42 @@ import { useGetList } from "react-admin";
 import { Box, FormControl, OutlinedInput } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
-import { Event } from "../../../lib/types/Event";
+import { Event, Agency } from "@/../lib/types/types";
 import _ from "lodash";
+import useEncodedURL from "@/../lib/hooks/useEncodedURL";
+import { useNavigate } from "react-router-dom";
 
 export const AgencyListAsideFilter: React.FC = () => {
-  const { data } = useGetList("agencies");
+  const { data } = useGetList<Agency>("agencies");
   const theme = useTheme();
+  const navigate = useNavigate();
+  const [searchedAgencies, setSearchedAgencies] = useState<Agency[]>([]);
 
-  const [searchedEvents, setSearchedEvents] = useState<Event[]>([]);
+  const encodedURL = useEncodedURL(searchedAgencies.map((event) => event.id));
 
   const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
-    const searchedEvents = _.filter(data, (event) => {
-      return event.title.toLowerCase().includes(value.toLowerCase());
+    const result = _.filter(data, (agency) => {
+      return (
+        _.includes(_.lowerCase(agency.name), _.lowerCase(value)) ||
+        _.includes(_.lowerCase(agency.address), _.lowerCase(value)) ||
+        _.includes(_.lowerCase(agency.city), _.lowerCase(value)) ||
+        _.includes(_.lowerCase(agency.country), _.lowerCase(value)) ||
+        _.includes(_.lowerCase(agency.phone), _.lowerCase(value)) ||
+        _.includes(_.lowerCase(agency.email), _.lowerCase(value)) ||
+        _.includes(_.lowerCase(agency.website), _.lowerCase(value))
+      );
     });
-    setSearchedEvents(searchedEvents);
+    setSearchedAgencies(result || data);
   };
+
+  const handleKeyDown = (event: any) => {
+    if (event.key === "Enter") {
+      navigate(`/agencies${encodedURL}`);
+    }
+  };
+
+  console.log({ searchedAgencies, encodedURL });
 
   return (
     <Box
@@ -54,6 +74,7 @@ export const AgencyListAsideFilter: React.FC = () => {
             inputProps={{ "aria-label": "Tìm kiếm" }}
             startAdornment={<SearchIcon />}
             onChange={handleSearch}
+            onKeyDown={handleKeyDown}
           />
         </FormControl>
 

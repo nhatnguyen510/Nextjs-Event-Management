@@ -9,7 +9,8 @@ import {
 } from "react-admin";
 import React from "react";
 import { useGetList } from "react-admin";
-import useEventTypes from "../../../lib/hooks/useEventTypes";
+import useEventTypes from "@/../lib/hooks/useEventTypes";
+import { Event } from "@/../lib/types/types";
 
 interface AgencyShowProps {}
 
@@ -19,10 +20,10 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
   const { data } = useGetList("events", {
     filter: { agency: recordId },
   });
-  const { upcomingEvents, ongoingEvents, pastEvents } = useEventTypes(data);
-  console.log({ recordId });
-  console.log({ data });
-  console.log({ upcomingEvents, ongoingEvents, pastEvents });
+  const { upcomingEvents, ongoingEvents, pastEvents } = useEventTypes(
+    data as Event[]
+  );
+
   return (
     <>
       <Show>

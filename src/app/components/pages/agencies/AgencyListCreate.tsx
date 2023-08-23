@@ -12,16 +12,16 @@ import {
   Divider,
   Grid,
   Dialog,
-  DialogContent,
   DialogTitle,
+  DialogContent,
 } from "@mui/material";
 
-interface AttendeeListCreateProps {
+interface AgencyListCreateProps {
   open: boolean;
   onClose: () => void;
 }
 
-export const AttendeeListCreate: React.FC<AttendeeListCreateProps> = ({
+export const AgencyListCreate: React.FC<AgencyListCreateProps> = ({
   open,
   onClose,
 }) => {
@@ -32,27 +32,27 @@ export const AttendeeListCreate: React.FC<AttendeeListCreateProps> = ({
     //       <Box ml={2} flex="1" maxWidth={796}>
     //         <Grid container spacing={2}>
     //           <Grid item xs={6}>
-    //             <TextInput source="title" fullWidth />
+    //             <TextInput source="name" fullWidth label="Họ tên" />
     //           </Grid>
     //           <Grid item xs={6}>
-    //             <TextInput source="description" fullWidth />
+    //             <TextInput source="address" fullWidth label="Địa chỉ" />
     //           </Grid>
     //           <Divider sx={{ mb: 2, width: "100%" }} />
     //           <Grid item xs={4}>
-    //             <DateInput source="date" fullWidth />
+    //             <TextInput source="city" fullWidth label="Thành phố" />
     //           </Grid>
     //           <Grid item xs={4}>
-    //             <TextInput source="location" fullWidth />
+    //             <TextInput source="country" fullWidth label="Quốc gia" />
     //           </Grid>
     //           <Grid item xs={4}>
-    //             <TextInput source="organizer" fullWidth />
+    //             <TextInput source="phone" fullWidth label="SĐT" />
     //           </Grid>
     //           <Divider sx={{ mb: 2, width: "100%" }} />
     //           <Grid item xs={6}>
-    //             <ImageInput source="image" fullWidth />
+    //             <TextInput source="email" fullWidth label="Email" />
     //           </Grid>
     //           <Grid item xs={6}>
-    //             <TextInput source="QRCodeLink" fullWidth />
+    //             <TextInput source="website" fullWidth label="Website" />
     //           </Grid>
     //           <Divider sx={{ mb: 2, width: "100%" }} />
     //         </Grid>
@@ -61,7 +61,7 @@ export const AttendeeListCreate: React.FC<AttendeeListCreateProps> = ({
     //   </SimpleForm>
     // </Create>
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Thêm người tham dự</DialogTitle>
+      <DialogTitle>Tạo Đơn Vị</DialogTitle>
       <DialogContent>
         <SimpleForm sx={{}}>
           <CardContent
@@ -73,46 +73,60 @@ export const AttendeeListCreate: React.FC<AttendeeListCreateProps> = ({
           >
             <Box ml={2} flex="1" maxWidth={796}>
               <Grid container spacing={2}>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                   <TextInput
                     source="name"
+                    variant="outlined"
+                    fullWidth
+                    label="Tên đơn vị"
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextInput
+                    source="address"
                     fullWidth
                     variant="outlined"
-                    label="Họ và tên"
+                    label="Địa chỉ"
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextInput
+                    source="city"
+                    fullWidth
+                    variant="outlined"
+                    label="Thành phố"
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextInput
+                    source="country"
+                    fullWidth
+                    variant="outlined"
+                    label="Quốc gia"
                   />
                 </Grid>
                 <Grid item xs={12}>
+                  <TextInput
+                    source="website"
+                    fullWidth
+                    variant="outlined"
+                    label="Link website"
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <TextInput
+                    source="phone"
+                    fullWidth
+                    variant="outlined"
+                    label="SĐT"
+                  />
+                </Grid>
+                <Grid item xs={6}>
                   <TextInput
                     source="email"
                     fullWidth
                     variant="outlined"
                     label="Email"
-                  />
-                </Grid>
-                <Grid item xs={12}>
-                  <TextInput
-                    source="phone"
-                    fullWidth
-                    variant="outlined"
-                    label="Số điện thoại"
-                  />
-                </Grid>
-
-                <Grid item xs={12}>
-                  <TextInput
-                    source="agency"
-                    fullWidth
-                    variant="outlined"
-                    label="Đơn vị"
-                  />
-                </Grid>
-
-                <Grid item xs={12}>
-                  <ImageInput
-                    source="avatar"
-                    fullWidth
-                    variant="outlined"
-                    label="Ảnh đại diện"
                   />
                 </Grid>
               </Grid>

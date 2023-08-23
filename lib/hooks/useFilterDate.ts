@@ -1,4 +1,4 @@
-import { Event } from "../types/Event";
+import { Event } from "../types/types";
 
 const useFilterDate = (
   start: Date | null,

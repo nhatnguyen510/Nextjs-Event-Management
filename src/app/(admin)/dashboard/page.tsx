@@ -2,18 +2,17 @@
 
 import React from "react";
 import { Admin, Resource, EditGuesser } from "react-admin";
-import { EventListRow } from "@/app/components/EventListRow";
-import { EventListCreate } from "@/app/components/EventListCreate";
+import { EventListRow } from "@/app/components/pages/events/EventListRow";
 import fakeEvents from "@/../fake-events.json";
 import fakeDataProvider from "ra-data-fakerest";
 import EventIcon from "@mui/icons-material/Event";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
-import AdminLayout from "@/app/components/AdminLayout";
-import Dashboard from "@/app/components/Dashboard";
-import AgencyListRow from "@/app/components/AgencyListRow";
-import { AgencyListCreate } from "@/app/components/AgencyListCreate";
-import { AgencyShow } from "@/app/components/AgencyShow";
-import { EventShow } from "@/app/components/EventShow";
+import AdminLayout from "@/app/components/layout/AdminLayout";
+import Dashboard from "@/app/components/pages/Dashboard";
+import AgencyListRow from "@/app/components/pages/agencies/AgencyListRow";
+import { AgencyShow } from "@/app/components/pages/agencies/AgencyShow";
+import { EventShow } from "@/app/components/pages/events/EventShow";
+import { EventEdit } from "@/app/components/pages/events/EventEdit";
 
 const dataProvider = fakeDataProvider(fakeEvents);
 
@@ -34,8 +33,7 @@ const AdminDashboard: React.FC<AdminProps> = (props) => {
         <Resource
           name="events"
           list={EventListRow}
-          edit={EditGuesser}
-          create={EventListCreate}
+          edit={EventEdit}
           show={EventShow}
           icon={EventIcon}
         />
@@ -43,7 +41,6 @@ const AdminDashboard: React.FC<AdminProps> = (props) => {
           name="agencies"
           list={AgencyListRow}
           edit={EditGuesser}
-          create={AgencyListCreate}
           show={AgencyShow}
           icon={PersonOutlineIcon}
         />

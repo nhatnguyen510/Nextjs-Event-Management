@@ -10,8 +10,10 @@ import {
 } from "@mui/material";
 import { Link } from "react-admin";
 import { Link as RouterLink } from "react-router-dom";
+import { eventTypesStore } from "../../../lib/zustand/EventTypesStore";
 
 interface EventCardProps {
+  id: string;
   icon: any;
   numberOfEvents: number;
   title: string;
@@ -21,6 +23,7 @@ interface EventCardProps {
 }
 
 const EventCard: React.FC<EventCardProps> = ({
+  id,
   icon,
   numberOfEvents,
   title,
@@ -28,9 +31,16 @@ const EventCard: React.FC<EventCardProps> = ({
   iconBgColor,
   link,
 }) => {
+  const setEventTypes = eventTypesStore((state) => state.setEventTypes);
+
+  const handleClick = () => {
+    console.log("clicked");
+    setEventTypes([id]);
+  };
+
   return (
     <>
-      <Link to={link} component={RouterLink} underline="none">
+      <Link to={`/events${link}`} component={RouterLink} underline="none">
         <Card
           sx={{
             backgroundColor: color,
@@ -49,6 +59,7 @@ const EventCard: React.FC<EventCardProps> = ({
             sx={{
               height: "100%",
             }}
+            onClick={handleClick}
           >
             <CardContent>
               <Container>

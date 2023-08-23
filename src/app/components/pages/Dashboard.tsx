@@ -1,19 +1,22 @@
 import React from "react";
 import { Grid, Typography, Box, Divider } from "@mui/material";
 import ListOfEvents from "@/../fake-events.json";
-import EventCard from "./EventCard";
+import EventCard from "../EventCard";
 import EventIcon from "@mui/icons-material/Event";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import EventBusyIcon from "@mui/icons-material/EventBusy";
-import useEventTypes from "../../../lib/hooks/useEventTypes";
-import useEncodedURL from "../../../lib/hooks/useEncodedURL";
-import BarChart from "./BarChart";
+import useEventTypes from "../../../../lib/hooks/useEventTypes";
+import useEncodedURL from "../../../../lib/hooks/useEncodedURL";
+import BarChart from "../charts/BarChart";
+import TopAgenciesChart from "../charts/TopAgenciesChart";
+import { useEventCountByMonth } from "../../../../lib/hooks/useEventCountByMonth";
 
 interface DashboardProps {}
 
-const Dashboard: React.FC<DashboardProps> = (props) => {
-  const events = ListOfEvents.events;
+const events = ListOfEvents.events;
+const agencies = ListOfEvents.agencies;
 
+const Dashboard: React.FC<DashboardProps> = (props) => {
   const { upcomingEvents, ongoingEvents, pastEvents } = useEventTypes(events);
 
   const upcomingEventsIds = upcomingEvents.map((event) => event.id);
@@ -24,28 +27,11 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
   const ongoingEventsURL = useEncodedURL(ongoingEventsIds);
   const pastEventsURL = useEncodedURL(pastEventsIds);
 
-  // Prepare event counts by month
-  const eventCountsByMonth: Record<
-    string,
-    { ongoing: number; upcoming: number; past: number }
-  > = {};
-
-  [...ongoingEvents, ...upcomingEvents, ...pastEvents].forEach((event) => {
-    const eventDate = new Date(event.date);
-    const monthYear = `${eventDate.getMonth() + 1}-${eventDate.getFullYear()}`;
-
-    if (!eventCountsByMonth[monthYear]) {
-      eventCountsByMonth[monthYear] = { ongoing: 0, upcoming: 0, past: 0 };
-    }
-
-    if (ongoingEvents.includes(event)) {
-      eventCountsByMonth[monthYear].ongoing++;
-    } else if (upcomingEvents.includes(event)) {
-      eventCountsByMonth[monthYear].upcoming++;
-    } else if (pastEvents.includes(event)) {
-      eventCountsByMonth[monthYear].past++;
-    }
-  });
+  const eventCountsByMonth = useEventCountByMonth(
+    pastEvents,
+    ongoingEvents,
+    upcomingEvents
+  );
 
   console.log({ eventCountsByMonth });
 
@@ -73,6 +59,7 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
       >
         <Grid item xs={12} md={4}>
           <EventCard
+            id="upcoming"
             title="SẮP DIỄN RA"
             color="#FFF4DE"
             icon={<EventIcon />}
@@ -83,6 +70,7 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
         </Grid>
         <Grid item xs={12} md={4}>
           <EventCard
+            id="ongoing"
             title="ĐANG DIỄN RA"
             color="#DCFCE7"
             icon={<EventAvailableIcon />}
@@ -93,6 +81,7 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
         </Grid>
         <Grid item xs={12} md={4}>
           <EventCard
+            id="past"
             title="ĐÃ KẾT THÚC"
             color="#FFE2E5"
             icon={<EventBusyIcon />}
@@ -102,11 +91,32 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
           />
         </Grid>
       </Grid>
-      <Divider sx={{ mt: 4, mb: 2 }} />
-      <BarChart
-        title="Thống kê số lượng sự kiện theo tháng"
-        eventCountsByMonth={eventCountsByMonth}
-      />
+      <Box
+        mt={4}
+        sx={{
+          backgroundColor: "#FFF",
+          borderRadius: "1rem",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          padding: "20px",
+        }}
+      >
+        <BarChart
+          title="Thống kê số lượng sự kiện theo tháng"
+          eventCountsByMonth={eventCountsByMonth}
+        />
+      </Box>
+
+      <Box
+        mt={4}
+        sx={{
+          backgroundColor: "#FFF",
+          borderRadius: "1rem",
+          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          padding: "20px",
+        }}
+      >
+        <TopAgenciesChart events={events} agencies={agencies} />
+      </Box>
     </>
   );
 };
