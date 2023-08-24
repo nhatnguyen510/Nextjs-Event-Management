@@ -8,7 +8,7 @@ import {
   useGetRecordId,
 } from "react-admin";
 import React from "react";
-import { useGetList } from "react-admin";
+import { useGetList, TopToolbar, EditButton, Button } from "react-admin";
 import useEventTypes from "@/../lib/hooks/useEventTypes";
 import { Event } from "@/../lib/types/types";
 
@@ -26,7 +26,7 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
 
   return (
     <>
-      <Show>
+      <Show actions={<ShowActions />}>
         <TextField source="name" variant="h5" component="div" m={2} />
         <TabbedShowLayout>
           <Tab label="Đang diễn ra" count={ongoingEvents?.length}>
@@ -102,3 +102,9 @@ export const AgencyShow: React.FC<AgencyShowProps> = (props) => {
     </>
   );
 };
+
+const ShowActions: React.FC = () => (
+  <TopToolbar>
+    <EditButton label="Sửa" />
+  </TopToolbar>
+);

@@ -13,6 +13,7 @@ import AgencyListRow from "@/app/components/pages/agencies/AgencyListRow";
 import { AgencyShow } from "@/app/components/pages/agencies/AgencyShow";
 import { EventShow } from "@/app/components/pages/events/EventShow";
 import { EventEdit } from "@/app/components/pages/events/EventEdit";
+import { AgencyEdit } from "@/app/components/pages/agencies/AgencyEdit";
 
 const dataProvider = fakeDataProvider(fakeEvents);
 
@@ -40,7 +41,7 @@ const AdminDashboard: React.FC<AdminProps> = (props) => {
         <Resource
           name="agencies"
           list={AgencyListRow}
-          edit={EditGuesser}
+          edit={AgencyEdit}
           show={AgencyShow}
           icon={PersonOutlineIcon}
         />

@@ -1,28 +1,16 @@
 import React from "react";
 import {
-  useNotify,
-  useRefresh,
-  useRedirect,
   Edit,
   SimpleForm,
   TextInput,
   DateInput,
   ImageInput,
 } from "react-admin";
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  CardContent,
-  Box,
-  Grid,
-  Divider,
-} from "@mui/material";
+import { CardContent, Box, Grid, Divider } from "@mui/material";
 
-interface EventEditProps {}
+interface AgencyEditProps {}
 
-export const EventEdit: React.FC<EventEditProps> = () => {
+export const AgencyEdit: React.FC<AgencyEditProps> = () => {
   return (
     <Edit>
       <SimpleForm>
@@ -37,71 +25,60 @@ export const EventEdit: React.FC<EventEditProps> = () => {
             <Grid container spacing={2}>
               <Grid item xs={6}>
                 <TextInput
-                  source="title"
-                  fullWidth
+                  source="name"
                   variant="outlined"
-                  label="Tiêu đề"
+                  fullWidth
+                  label="Tên đơn vị"
                 />
               </Grid>
               <Grid item xs={6}>
                 <TextInput
-                  source="description"
+                  source="address"
                   fullWidth
                   variant="outlined"
-                  label="Mô tả"
-                />
-              </Grid>
-              <Divider sx={{ mb: 2, width: "100%" }} />
-              <Grid item xs={3}>
-                <DateInput
-                  source="date"
-                  fullWidth
-                  variant="outlined"
-                  label="Ngày bắt đầu"
-                />
-              </Grid>
-              <Grid item xs={3}>
-                <DateInput
-                  source="endDate"
-                  fullWidth
-                  variant="outlined"
-                  label="Ngày kết thúc"
-                />
-              </Grid>
-              <Grid item xs={3}>
-                <TextInput
-                  source="location"
-                  fullWidth
-                  variant="outlined"
-                  label="Địa điểm"
-                />
-              </Grid>
-              <Grid item xs={3}>
-                <TextInput
-                  source="organizer"
-                  fullWidth
-                  variant="outlined"
-                  label="Đơn vị tổ chức"
-                />
-              </Grid>
-              <Divider sx={{ mb: 2, width: "100%" }} />
-              <Grid item xs={6}>
-                <ImageInput
-                  source="image"
-                  fullWidth
-                  variant="outlined"
-                  label="Hình ảnh"
+                  label="Địa chỉ"
                 />
               </Grid>
               <Grid item xs={6}>
                 <TextInput
-                  source="QRCodeLink"
+                  source="city"
                   fullWidth
                   variant="outlined"
-                  label="Link mã QR"
+                  label="Thành phố"
                 />
               </Grid>
-              <Divider sx={{ mb: 2, width: "100%" }} />
+              <Grid item xs={6}>
+                <TextInput
+                  source="country"
+                  fullWidth
+                  variant="outlined"
+                  label="Quốc gia"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextInput
+                  source="website"
+                  fullWidth
+                  variant="outlined"
+                  label="Link website"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextInput
+                  source="phone"
+                  fullWidth
+                  variant="outlined"
+                  label="SĐT"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextInput
+                  source="email"
+                  fullWidth
+                  variant="outlined"
+                  label="Email"
+                />
+              </Grid>
             </Grid>
           </Box>
         </CardContent>

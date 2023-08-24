@@ -13,8 +13,9 @@ import {
   ExportButton,
   TopToolbar,
   EditButton,
+  Button,
 } from "react-admin";
-import { Button } from "@mui/material";
+// import { Button } from "@mui/material";
 import { createDialogStore } from "../../../../../lib/zustand/EventDialogStore";
 import { AttendeeListCreate } from "../../AttendeeListCreate";
 
@@ -131,16 +132,18 @@ const ShowActions: React.FC<ShowActionsProps> = ({ eventId }) => {
 
   return (
     <>
-      <TopToolbar>
+      <TopToolbar
+        sx={{
+          marginBottom: "1rem",
+        }}
+      >
         <Button
           variant="contained"
-          size="small"
           onClick={() => {
             setIsDialogOpen(true);
           }}
-        >
-          Thêm người tham gia
-        </Button>
+          label="Thêm người tham gia"
+        />
         <EditButton
           sx={{
             color: "white",
