@@ -25,10 +25,10 @@ const Login: React.FC<loginProps> = (props) => {
     console.log("Received values of form: ", values);
     setIsLoading(true);
 
-    await signIn("credentials", {
-      email: values.email,
+    const res = await signIn("credentials", {
+      username: values.username,
       password: values.password,
-      callbackUrl: "/",
+      callbackUrl: "/dashboard",
     });
 
     setIsLoading(false);
@@ -63,6 +63,16 @@ const Login: React.FC<loginProps> = (props) => {
       >
         <Image alt="logo" src={MobifoneLogo} width={200} height={40} />
 
+        <Typography.Title
+          level={3}
+          className="text-center"
+          style={{
+            color: "#0967c2",
+          }}
+        >
+          Hệ thống quản lý sự kiện
+        </Typography.Title>
+
         <Form
           name="basic"
           initialValues={{ remember: true }}
@@ -74,21 +84,28 @@ const Login: React.FC<loginProps> = (props) => {
           size="large"
         >
           <Typography.Title level={3} className="text-center">
-            Login
+            Đăng nhập
           </Typography.Title>
 
           <Form.Item
-            name="email"
-            rules={[{ required: true, message: "Please input your email!" }]}
+            name="username"
+            rules={[
+              {
+                required: true,
+                message: "Vui lòng nhập tên đăng nhập của bạn!",
+              },
+            ]}
           >
-            <Input placeholder="Input your Email" />
+            <Input placeholder="Tên đăng nhập" />
           </Form.Item>
 
           <Form.Item
             name="password"
-            rules={[{ required: true, message: "Please input your password!" }]}
+            rules={[
+              { required: true, message: "Vui lòng nhập mật khẩu của bạn!" },
+            ]}
           >
-            <Input.Password placeholder="Input your Password" />
+            <Input.Password placeholder="Mật khẩu" />
           </Form.Item>
 
           <Row justify="space-between">
@@ -112,7 +129,7 @@ const Login: React.FC<loginProps> = (props) => {
                 alignItems: "center",
               }}
             >
-              <Link href="/forgot-password">Forgot your password?</Link>
+              <Link href="/">Quên mật khẩu?</Link>
             </Col>
           </Row>
 
@@ -127,12 +144,12 @@ const Login: React.FC<loginProps> = (props) => {
               }}
               loading={isLoading}
             >
-              Login
+              Đăng nhập
             </Button>
           </Form.Item>
 
           <Divider>
-            <Typography.Text type="secondary">Or</Typography.Text>
+            <Typography.Text type="secondary">Hoặc</Typography.Text>
           </Divider>
 
           <Form.Item
@@ -142,9 +159,9 @@ const Login: React.FC<loginProps> = (props) => {
             }}
           >
             <Typography.Text type="secondary">
-              Don't have an account?
+              Bạn chưa có tài khoản?
             </Typography.Text>
-            <Link href="/register"> Register</Link>
+            <Link href="/register">Đăng ký</Link>
           </Form.Item>
         </Form>
       </Col>

@@ -7,26 +7,26 @@ export const nextAuthOptions: NextAuthOptions = {
     CredentialProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
+        username: { label: "Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const { email, password } = credentials as any;
+        const { username, password } = credentials as any;
 
-        console.log({ email, password });
+        console.log({ username, password });
 
-        if (email == "admin" && password == "admin") {
+        if (username == "admin" && password == "admin") {
           return {
             id: "123",
             name: "admin",
-            email,
+            username,
           };
         }
 
         return {
           id: "123",
           name: "Nhat Nguyen",
-          email,
+          username,
         };
         // const res = await fetch(
         //   `${process.env.NEXT_PUBLIC_SERVER_URL}/auth/login`,

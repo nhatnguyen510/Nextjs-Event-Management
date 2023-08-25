@@ -15,7 +15,7 @@ import {
   EditButton,
   Button,
 } from "react-admin";
-// import { Button } from "@mui/material";
+import { Box } from "@mui/material";
 import { createDialogStore } from "../../../../../lib/zustand/EventDialogStore";
 import { AttendeeListCreate } from "../../AttendeeListCreate";
 
@@ -46,7 +46,7 @@ export const EventShow: React.FC<EventShowProps> = (props) => {
           },
 
           "& .MuiPaper-root": {
-            maxHeight: "800px",
+            // maxHeight: "800px",
             overflowY: "auto",
             "&::-webkit-scrollbar": {
               width: "0.4em",
@@ -66,12 +66,11 @@ export const EventShow: React.FC<EventShowProps> = (props) => {
         <ReferenceManyField label={false} reference="attendees" target="events">
           <Datagrid>
             <TextField source="id" />
+
             <ImageField
               source="avatar"
               sx={{
                 "& img": {
-                  maxWidth: 50,
-                  maxHeight: 50,
                   objectFit: "contain",
                 },
               }}
@@ -95,13 +94,14 @@ export const EventShow: React.FC<EventShowProps> = (props) => {
 
 const ShowAside: React.FC = () => {
   return (
-    <SimpleShowLayout sx={{ width: "100%", flexShrink: 0 }}>
+    <SimpleShowLayout sx={{ width: "350px" }}>
       <ImageField
         source="image"
         sx={{
           "& .RaImageField-image": {
-            width: "100%",
-            height: "100%",
+            width: "400px",
+            height: "300px",
+            objectFit: "contain",
           },
         }}
         label="Ảnh"

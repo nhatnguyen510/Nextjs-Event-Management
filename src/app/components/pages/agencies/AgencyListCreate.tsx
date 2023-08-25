@@ -61,7 +61,15 @@ export const AgencyListCreate: React.FC<AgencyListCreateProps> = ({
     //   </SimpleForm>
     // </Create>
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Tạo Đơn Vị</DialogTitle>
+      <DialogTitle
+        sx={{
+          textAlign: "center",
+          fontWeight: "bold",
+          fontSize: "1.5rem",
+        }}
+      >
+        Tạo Đơn Vị
+      </DialogTitle>
       <DialogContent>
         <SimpleForm sx={{}}>
           <CardContent
@@ -105,14 +113,7 @@ export const AgencyListCreate: React.FC<AgencyListCreateProps> = ({
                     label="Quốc gia"
                   />
                 </Grid>
-                <Grid item xs={12}>
-                  <TextInput
-                    source="website"
-                    fullWidth
-                    variant="outlined"
-                    label="Link website"
-                  />
-                </Grid>
+
                 <Grid item xs={6}>
                   <TextInput
                     source="phone"
@@ -127,6 +128,14 @@ export const AgencyListCreate: React.FC<AgencyListCreateProps> = ({
                     fullWidth
                     variant="outlined"
                     label="Email"
+                  />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextInput
+                    source="website"
+                    fullWidth
+                    variant="outlined"
+                    label="Link website"
                   />
                 </Grid>
               </Grid>

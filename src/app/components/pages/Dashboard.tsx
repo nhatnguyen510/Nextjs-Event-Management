@@ -51,6 +51,8 @@ const Dashboard: React.FC<DashboardProps> = (props) => {
         mt={4}
         spacing={2}
         sx={{
+          width: "100%",
+          marginLeft: "0px",
           backgroundColor: "#FFF",
           borderRadius: "1rem",
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",

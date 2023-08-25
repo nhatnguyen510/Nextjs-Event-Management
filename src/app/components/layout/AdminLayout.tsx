@@ -93,7 +93,7 @@ const MyAppBar: React.FC = () => {
                   callbackUrl: "/login",
                 });
               }}
-            />
+            ></Logout>
           </UserMenu>
         </Box>
       </Box>
@@ -116,6 +116,7 @@ const AdminLayout: React.FC = ({ children }: LayoutProps) => {
 
           "& .RaLayout-content": {
             paddingLeft: "26px",
+            paddingBottom: "26px",
           },
 
           "& .RaMenuItemLink-active, & .RaMenuItemLink-active:hover": {

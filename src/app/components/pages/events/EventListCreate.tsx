@@ -31,7 +31,11 @@ export const EventListCreate: React.FC<EventListCreateProps> = ({
   return (
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Tạo sự kiện</DialogTitle>
-      <DialogContent>
+      <DialogContent
+        sx={{
+          padding: 0,
+        }}
+      >
         <SimpleForm sx={{}}>
           <CardContent
             sx={{
@@ -58,8 +62,8 @@ export const EventListCreate: React.FC<EventListCreateProps> = ({
                     label="Mô tả"
                   />
                 </Grid>
-                <Divider sx={{ mb: 2, width: "100%" }} />
-                <Grid item xs={3}>
+
+                <Grid item xs={6}>
                   <DateInput
                     source="date"
                     fullWidth
@@ -67,7 +71,7 @@ export const EventListCreate: React.FC<EventListCreateProps> = ({
                     label="Ngày bắt đầu"
                   />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6}>
                   <DateInput
                     source="endDate"
                     fullWidth
@@ -75,7 +79,7 @@ export const EventListCreate: React.FC<EventListCreateProps> = ({
                     label="Ngày kết thúc"
                   />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6}>
                   <TextInput
                     source="location"
                     fullWidth
@@ -83,7 +87,7 @@ export const EventListCreate: React.FC<EventListCreateProps> = ({
                     label="Địa điểm"
                   />
                 </Grid>
-                <Grid item xs={3}>
+                <Grid item xs={6}>
                   <TextInput
                     source="organizer"
                     fullWidth
@@ -91,8 +95,8 @@ export const EventListCreate: React.FC<EventListCreateProps> = ({
                     label="Đơn vị tổ chức"
                   />
                 </Grid>
-                <Divider sx={{ mb: 2, width: "100%" }} />
-                <Grid item xs={6}>
+
+                <Grid item xs={12}>
                   <ImageInput
                     source="image"
                     fullWidth
@@ -100,15 +104,6 @@ export const EventListCreate: React.FC<EventListCreateProps> = ({
                     label="Hình ảnh"
                   />
                 </Grid>
-                <Grid item xs={6}>
-                  <TextInput
-                    source="QRCodeLink"
-                    fullWidth
-                    variant="outlined"
-                    label="Link mã QR"
-                  />
-                </Grid>
-                <Divider sx={{ mb: 2, width: "100%" }} />
               </Grid>
             </Box>
           </CardContent>

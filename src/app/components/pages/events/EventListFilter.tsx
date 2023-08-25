@@ -202,7 +202,9 @@ export const EventListAsideFilter: React.FC = () => {
           />
         </FormControl>
 
-        <FormControl sx={{ width: 400, backgroundColor: "#FFF" }}>
+        <FormControl
+          sx={{ width: 400, height: "100%", backgroundColor: "#FFF" }}
+        >
           <Select
             multiple
             displayEmpty
@@ -234,6 +236,9 @@ export const EventListAsideFilter: React.FC = () => {
                           choices.find((choice) => choice.id === value)?.name
                         }
                         icon={<Status status={value} />}
+                        sx={{
+                          height: "24px",
+                        }}
                       />
                     );
                   })}

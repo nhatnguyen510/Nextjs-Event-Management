@@ -60,7 +60,6 @@ export const EventListRow: React.FC<EventListRowProps> = ({ events }) => {
             <TextField source="name" />
           </ReferenceField>
           <ImageField source="image" label="Hình ảnh" />
-          <TextField source="QRCodeLink" label="Mã QR" />
           <NumberField
             source="numOfAttendees"
             label="Số lượng tham gia"
